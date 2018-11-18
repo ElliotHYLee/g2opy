@@ -2,6 +2,8 @@
 #! /bin
 sudo apt-get install libglew1.6-dev libglewmx1.6-dev glew-utils libqt4-dev libsuitesparse-dev
 
+sudo pip3 install PyOpenGL PyOpenGL_accelerate
+
 mkdir build
 cd build
 cmake ..
