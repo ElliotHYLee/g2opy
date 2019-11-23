@@ -33,9 +33,7 @@ def main():
     if len(args.output) > 0:
         optimizer.save(args.output)
 
-
 if __name__ == '__main__':
-    assert os.path.isfile(args.input), (
-        'Please provide a existing .g2o file')
+    assert os.path.isfile(args.input), ('Please provide a existing .g2o file')
         
     main()

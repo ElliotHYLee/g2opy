@@ -28,12 +28,10 @@ def main():
     principal_point = (320, 240)
     baseline = 0.075
 
-
     true_points = np.hstack([
         np.random.random((500, 1)) * 3 - 1.5,
-        np.random.random((500, 1)) - 0.5,
-        np.random.random((500, 1)) + 3])
-
+        np.random.random((500, 1)) * 1 - 0.5,
+        np.random.random((500, 1)) * 1 + 3])
 
     num_pose = 15
     for i in range(num_pose):
@@ -48,7 +46,6 @@ def main():
         if i < 2:
             v_cam.set_fixed(True)
         optimizer.add_vertex(v_cam)
-
 
     point_id = num_pose
     inliers = dict()
@@ -102,7 +99,6 @@ def main():
     optimizer.initialize_optimization()
     optimizer.set_verbose(True)
     optimizer.optimize(10)
-
 
     for i in inliers:
         vp = optimizer.vertex(i)

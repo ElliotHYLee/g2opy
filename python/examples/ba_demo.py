@@ -1,22 +1,17 @@
 # https://github.com/RainerKuemmerle/g2o/blob/master/g2o/examples/ba/ba_demo.cpp
 
 import numpy as np
-import g2o 
-
+import g2o
 from collections import defaultdict
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--noise', dest='pixel_noise', type=float, default=1.,
-    help='noise in image pixel space (default: 1.0)')
-parser.add_argument('--outlier', dest='outlier_ratio', type=float, default=0.,
-    help='probability of spuroius observation  (default: 0.0)')
+parser.add_argument('--noise', dest='pixel_noise', type=float, default=1., help='noise in image pixel space (default: 1.0)')
+parser.add_argument('--outlier', dest='outlier_ratio', type=float, default=0., help='probability of spuroius observation  (default: 0.0)')
 parser.add_argument('--robust', dest='robust_kernel', action='store_true', help='use robust kernel')
 parser.add_argument('--dense', action='store_true', help='use dense solver')
 parser.add_argument('--seed', type=int, help='random seed', default=0)
 args = parser.parse_args()
-
-
 
 def main():    
     optimizer = g2o.SparseOptimizer()
@@ -30,11 +25,9 @@ def main():
     cam.set_id(0)
     optimizer.add_parameter(cam)
 
-    true_points = np.hstack([
-        np.random.random((500, 1)) * 3 - 1.5,
-        np.random.random((500, 1)) - 0.5,
-        np.random.random((500, 1)) + 3])
-
+    true_points = np.hstack([ np.random.random((500, 1)) * 3 - 1.5,
+                              np.random.random((500, 1)) - 0.5,
+                              np.random.random((500, 1)) + 3])
 
     true_poses = []
     num_pose = 15
@@ -104,6 +97,7 @@ def main():
 
 
     for i in inliers:
+        print(i)
         vp = optimizer.vertex(i)
         error = vp.estimate() - true_points[inliers[i]]
         sse[1] += np.sum(error**2)
@@ -111,8 +105,6 @@ def main():
     print('\nRMSE (inliers only):')
     print('before optimization:', np.sqrt(sse[0] / len(inliers)))
     print('after  optimization:', np.sqrt(sse[1] / len(inliers)))
-                    
-
 
 if __name__ == '__main__':
     if args.seed > 0:
