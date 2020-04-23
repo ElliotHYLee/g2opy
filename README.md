@@ -2,6 +2,8 @@
 
 yes| sh install.sh
 
+==============================================================
+
 # g2opy from uoip
 
 This is a python binding of graph optimization C++ framework [g2o](https://github.com/RainerKuemmerle/g2o).
