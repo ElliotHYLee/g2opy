@@ -22,6 +22,7 @@ cd ../..
 sudo apt install python3-pip
 sudo pip3 install PyOpenGL PyOpenGL_accelerate
 
+# build g2opy
 mkdir build
 cd build
 cmake ..
