@@ -6,8 +6,7 @@
 
 
 # system
-sudo apt install cmake
-sudo apt-get install libglew1.6-dev libglewmx1.6-dev glew-utils libqt4-dev libsuitesparse-dev libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglviewer-dev
+sudo apt-get install cmake libglew1.6-dev libglewmx1.6-dev glew-utils libqt4-dev libsuitesparse-dev libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglviewer-dev -y
 
 # unzip and install eigen
 tar -xvjf eigen-eigen-5a0156e40feb.tar.bz2
@@ -17,10 +16,6 @@ cd build
 cmake ..
 sudo make install 
 cd ../..
-
-# python3 part
-sudo apt install python3-pip
-sudo pip3 install PyOpenGL PyOpenGL_accelerate
 
 # build g2opy
 mkdir build
