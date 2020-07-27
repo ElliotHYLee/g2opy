@@ -6,7 +6,7 @@
 
 
 # system
-sudo apt-get install cmake libglew1.6-dev libglewmx1.6-dev glew-utils libqt4-dev libsuitesparse-dev libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglviewer-dev -y
+sudo apt-get install python3-pip cmake libglew1.6-dev libglewmx1.6-dev glew-utils libqt4-dev libsuitesparse-dev libsuitesparse-dev qtdeclarative5-dev qt5-qmake libqglviewer-dev -y
 
 # unzip and install eigen
 tar -xvjf eigen-eigen-5a0156e40feb.tar.bz2
