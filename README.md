@@ -1,4 +1,5 @@
 # my edit: added installation file
+only for p35
 
 yes| sh install.sh
 
